@@ -25,4 +25,4 @@ jobs:
         if: steps.cfg.outcome == 'success'
         uses: actions/deploy-pages@v4
       - if: steps.cfg.outcome != 'success'
-        run: echo "GitHub Pages is not enabled yet (Settings -> Pages -> Source: GitHub Actions). Skipped deploy."
+        run: 'echo "GitHub Pages is not enabled yet. Skipped deploy."'
