@@ -1,0 +1,3 @@
+2026-10-18 21:45 CEST | setup | basket chosen from 16 Oct close data; scheduled daily mark 16:10 IST Mon-Fri on this thread
+2026-10-19 16:11 IST | mark 2026-10-19 | total 995273 (-0.47%) | BOUGHT MOTHERSON.NS 777 @ 160.39; BOUGHT DIVISLAB.NS 13 @ 9191.50; BOUGHT TORNTPHARM.NS 27 @ 4551.20; BOUGHT TITAN.NS 28 @ 4452.00; BOUGHT ABB.NS 18 @ 6800.00; BOUGHT ADANIPOWER.NS 639 @ 195.00; BOUGHT BAJAJ-AUTO.NS 11 @ 10405.00; BOUGHT BOSCHLTD.NS 2 @ 45400.00; EXIT TOMORROW TITAN.NS: trend: close 4424.20 below 200dma 4433.80
+2026-10-20 16:11 IST | mark 2026-10-20 | no bar (NSE holiday, Dussehra); nothing recorded; Titan exit still pending for next open

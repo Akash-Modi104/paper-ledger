@@ -1,0 +1,23 @@
+name: verify
+on:
+  schedule:
+    - cron: '20 11 * * 1-5'   # 16:50 IST, after the daily mark is pushed
+  workflow_dispatch:
+  push:
+    paths: ['marks.csv', 'trades.csv']
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install yfinance pandas
+      - run: python verify.py
+      - if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add verify/ && (git commit -m "verify $(date -u +%F)" && git push) || echo "nothing to commit"

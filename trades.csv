@@ -1,0 +1,9 @@
+date,time_ist,symbol,side,qty,price,cost,value,reason
+2026-10-19,09:15 open,MOTHERSON.NS,BUY,777,160.39,249.25,124872.28,entry: top-8 12-1m momentum above 200dma
+2026-10-19,09:15 open,DIVISLAB.NS,BUY,13,9191.50,238.98,119728.48,entry: top-8 12-1m momentum above 200dma
+2026-10-19,09:15 open,TORNTPHARM.NS,BUY,27,4551.20,245.76,123128.17,entry: top-8 12-1m momentum above 200dma
+2026-10-19,09:15 open,TITAN.NS,BUY,28,4452.00,249.31,124905.31,entry: top-8 12-1m momentum above 200dma
+2026-10-19,09:15 open,ABB.NS,BUY,18,6800.00,244.80,122644.80,entry: top-8 12-1m momentum above 200dma
+2026-10-19,09:15 open,ADANIPOWER.NS,BUY,639,195.00,249.21,124854.21,entry: top-8 12-1m momentum above 200dma
+2026-10-19,09:15 open,BAJAJ-AUTO.NS,BUY,11,10405.00,228.91,114683.91,entry: top-8 12-1m momentum above 200dma
+2026-10-19,09:15 open,BOSCHLTD.NS,BUY,2,45400.00,181.60,90981.60,entry: top-8 12-1m momentum above 200dma

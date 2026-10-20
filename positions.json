@@ -1,0 +1,82 @@
+[
+ {
+  "symbol": "MOTHERSON",
+  "qty": 777,
+  "entry": 160.39,
+  "close": 158.15,
+  "value": 122883.0,
+  "pl_pct": -1.4,
+  "dma200": 138.0,
+  "exit_flag": "hold"
+ },
+ {
+  "symbol": "DIVISLAB",
+  "qty": 13,
+  "entry": 9191.5,
+  "close": 9087.0,
+  "value": 118131.0,
+  "pl_pct": -1.14,
+  "dma200": 7196.0,
+  "exit_flag": "hold"
+ },
+ {
+  "symbol": "TORNTPHARM",
+  "qty": 27,
+  "entry": 4551.2,
+  "close": 4558.7,
+  "value": 123085.0,
+  "pl_pct": 0.16,
+  "dma200": 4483.0,
+  "exit_flag": "hold"
+ },
+ {
+  "symbol": "TITAN",
+  "qty": 28,
+  "entry": 4452.0,
+  "close": 4424.2,
+  "value": 123878.0,
+  "pl_pct": -0.62,
+  "dma200": 4434.0,
+  "exit_flag": "trend: close 4424.20 below 200dma 4433.80"
+ },
+ {
+  "symbol": "ABB",
+  "qty": 18,
+  "entry": 6800.0,
+  "close": 6974.0,
+  "value": 125532.0,
+  "pl_pct": 2.56,
+  "dma200": 6643.0,
+  "exit_flag": "hold"
+ },
+ {
+  "symbol": "ADANIPOWER",
+  "qty": 639,
+  "entry": 195.0,
+  "close": 194.08,
+  "value": 124017.0,
+  "pl_pct": -0.47,
+  "dma200": 190.0,
+  "exit_flag": "hold"
+ },
+ {
+  "symbol": "BAJAJ-AUTO",
+  "qty": 11,
+  "entry": 10405.0,
+  "close": 10287.0,
+  "value": 113157.0,
+  "pl_pct": -1.13,
+  "dma200": 10260.0,
+  "exit_flag": "hold"
+ },
+ {
+  "symbol": "BOSCHLTD",
+  "qty": 2,
+  "entry": 45400.0,
+  "close": 45195.0,
+  "value": 90390.0,
+  "pl_pct": -0.45,
+  "dma200": 39494.0,
+  "exit_flag": "hold"
+ }
+]

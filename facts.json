@@ -1,0 +1,26 @@
+[
+ {
+  "key": "start_capital",
+  "value": 1000000
+ },
+ {
+  "key": "target_month_pct",
+  "value": 2.2
+ },
+ {
+  "key": "start",
+  "value": "2026-10-19"
+ },
+ {
+  "key": "end",
+  "value": "2026-11-19"
+ },
+ {
+  "key": "last_mark",
+  "value": "2026-10-19"
+ },
+ {
+  "key": "cash",
+  "value": 54201.24
+ }
+]

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paper Portfolio Scorecard</title>
+<style>
+:root{--bg:#f6f5f1;--fg:#1d1f22;--muted:#6b6f76;--panel:#ffffff;--line:#dcdad3;--acc:#2b5f8c;--acc2:#b8762a;--acc3:#7a8a5a;--ok:#1f7a4d;--bad:#b3362d;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#16181c;--fg:#e8e6e0;--muted:#9a9ea6;--panel:#1f2227;--line:#33373e;--acc:#7fb2e0;--acc2:#e0a35a;--acc3:#a7b887;--ok:#5cc08a;--bad:#e2695f;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 -apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-variant-numeric:tabular-nums}
+.wrap{max-width:1100px;margin:0 auto;padding-block:20px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:16px}
+h1{font:400 26px/1.2 Georgia,"Times New Roman",serif;margin:0}
+.sub{color:var(--muted);margin:4px 0 0}
+.badge{display:inline-block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--muted);margin-left:8px;vertical-align:middle}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;min-width:0}
+.card h2{font-size:14px;font-weight:600;margin:0 0 6px;color:var(--muted)}
+.card .note{color:var(--muted);font-size:12.5px;margin:0 0 10px}
+.big{font:400 30px/1.1 Georgia,"Times New Roman",serif}
+.small{color:var(--muted);font-size:12.5px;margin-top:6px}
+.good{color:var(--ok)}.bad{color:var(--bad)}
+.chart{position:relative;min-height:260px}
+.chart svg{width:100%;height:auto;display:block}
+.tip{position:absolute;pointer-events:none;display:none;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:12px;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{font-weight:600;color:var(--muted)}
+ul{margin:0;padding-left:1.2em;font-size:13px;color:var(--muted)}
+a{color:var(--acc)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <header>
+  <h1>Paper Portfolio Scorecard <span class="badge">virtual money</span></h1>
+  <p class="sub" id="take">Loading the ledger…</p>
+ </header>
+ <section class="tiles">
+  <div class="card"><h2>Paper portfolio</h2><div class="big" id="t-total">—</div><div class="small">Return since 19 Oct open: <span id="t-ret">—</span></div></div>
+  <div class="card"><h2>Against Nifty 50</h2><div class="big" id="t-v50">—</div><div class="small">Nifty 50 same window: <span id="t-n50">—</span></div></div>
+  <div class="card"><h2>Against Nifty 500</h2><div class="big" id="t-v500">—</div><div class="small">Nifty 500 same window: <span id="t-n500">—</span></div></div>
+  <div class="card"><h2>Month target</h2><div class="big" id="t-tgt">—</div><div class="small">Gap to +2.2% (30%/yr). Ends 19 Nov 2026.</div></div>
+ </section>
+ <section class="card">
+  <h2>Daily return vs benchmarks</h2>
+  <p class="note">Percent since the 19 Oct open, one point per NSE trading day at the close. Dashed line is the +2.2% month target.</p>
+  <div class="legend"><span><i style="background:var(--acc)"></i>Paper</span><span><i style="background:var(--acc2)"></i>Nifty 50</span><span><i style="background:var(--acc3)"></i>Nifty 500</span></div>
+  <div class="chart" id="chart"><div class="tip" id="tip"></div></div>
+ </section>
+ <section class="card">
+  <h2>Open positions</h2>
+  <p class="note">Yahoo Finance closes at the last mark. Exit rules: close under its own 200-day average, or 8% below entry, sold at the next open.</p>
+  <div class="tw"><table><thead><tr><th>Stock</th><th>Qty</th><th>Entry</th><th>Close</th><th>Value</th><th>P/L</th><th>200-day</th><th>Status</th></tr></thead><tbody id="pos"></tbody></table></div>
+ </section>
+ <section class="card">
+  <h2>Every paper trade</h2>
+  <p class="note">Price is the first bar's open on the trade day from Yahoo Finance. Cost is 0.2% per side.</p>
+  <div class="tw"><table><thead><tr><th>Date</th><th>Stock</th><th>Side</th><th>Qty</th><th>Price</th><th>Cost</th><th>Value</th><th>Reason</th></tr></thead><tbody id="tr"></tbody></table></div>
+ </section>
+ <section class="card">
+  <h2>How to check these numbers</h2>
+  <ul>
+   <li>This page reads <a href="marks.csv">marks.csv</a>, <a href="trades.csv">trades.csv</a> and <a href="positions.json">positions.json</a> from this repository. The commit history shows when each row arrived.</li>
+   <li>Trades are never back-dated: a buy or sell uses the next open after the rule fires, and <a href="rules.md">rules.md</a> was fixed before the first trade on 18 Oct 2026.</li>
+   <li>Every weekday evening a GitHub Action rebuilds the portfolio value from the trade list with its own Yahoo Finance download and writes the result to <a href="verify/">verify/</a>. See <a href="verify.py">verify.py</a>.</li>
+   <li>Virtual money only. Nothing here is a real order.</li>
+  </ul>
+ </section>
+</div>
+<script>
+(async function(){
+ const bust='?t='+Date.now();
+ const txt=async p=>{const r=await fetch(p+bust,{cache:'no-store'});if(!r.ok)throw new Error(p+' '+r.status);return r.text();};
+ const csv=s=>{const L=s.trim().split(/\r?\n/);const h=L.shift().split(',');return L.map(l=>{const c=l.split(',');const o={};h.forEach((k,i)=>o[k]=c[i]);return o;});};
+ const inr=v=>'₹'+new Intl.NumberFormat('en-IN',{maximumFractionDigits:0}).format(v);
+ const pct=v=>(v>0?'+':'')+Number(v).toFixed(2)+'%';
+ const n2=v=>new Intl.NumberFormat('en-IN',{minimumFractionDigits:2,maximumFractionDigits:2}).format(Number(v));
+ const dfmt=d=>d.toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'});
+ const set=(id,txt,v)=>{const e=document.getElementById(id);e.textContent=txt;if(v!==undefined){e.classList.toggle('good',v>0);e.classList.toggle('bad',v<0);}};
+ let marks,trades,pos;
+ try{[marks,trades,pos]=await Promise.all([txt('marks.csv').then(csv),txt('trades.csv').then(csv),txt('positions.json').then(JSON.parse)]);}
+ catch(e){document.getElementById('take').textContent='Could not load the ledger files: '+e.message;return;}
+ const m=marks[marks.length-1];
+ const r=+m.return_pct,n50=+m.nifty50_pct,n500=+m.nifty500_pct;
+ set('t-total',inr(+m.total));set('t-ret',pct(r),r);set('t-v50',pct(r-n50),r-n50);set('t-n50',pct(n50));set('t-v500',pct(r-n500),r-n500);set('t-n500',pct(n500));set('t-tgt',pct(r-2.2),r-2.2);
+ document.getElementById('take').textContent=`As of ${dfmt(new Date(m.date))} close: ${pct(r)} on ₹10 lakh, ${Math.abs(r-n50).toFixed(2)} points ${r>=n50?'ahead of':'behind'} the Nifty 50, ${m.n_positions} stocks held, cash ${inr(+m.cash)}. Marks so far: ${marks.length}.`;
+ // chart
+ const box=document.getElementById('chart'),tip=document.getElementById('tip');
+ const W=Math.max(320,box.clientWidth),H=260,ml=44,mr=90,mt=12,mb=28;
+ const start=Date.UTC(2026,9,19),end=Date.UTC(2026,10,19);
+ const data=marks.map(x=>({d:Date.UTC(+x.date.slice(0,4),+x.date.slice(5,7)-1,+x.date.slice(8,10)),p:+x.return_pct,a:+x.nifty50_pct,b:+x.nifty500_pct}));
+ const vals=data.flatMap(d=>[d.p,d.a,d.b]).concat([0,2.2]);
+ const lo=Math.floor(Math.min(...vals,-1)-0.5),hi=Math.ceil(Math.max(...vals,2.2)+0.5);
+ const X=t=>ml+(t-start)/(end-start)*(W-ml-mr), Y=v=>mt+(hi-v)/(hi-lo)*(H-mt-mb);
+ const ns='http://www.w3.org/2000/svg';const el=(n,a)=>{const e=document.createElementNS(ns,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
+ const svg=el('svg',{viewBox:`0 0 ${W} ${H}`});
+ const step=(hi-lo)>8?2:1;
+ for(let v=lo;v<=hi;v+=step){svg.appendChild(el('line',{x1:ml,x2:W-mr,y1:Y(v),y2:Y(v),stroke:'var(--line)','stroke-width':v===0?1.5:1}));const t=el('text',{x:ml-6,y:Y(v),'text-anchor':'end','dominant-baseline':'middle',fill:'var(--muted)','font-size':11});t.textContent=v+'%';svg.appendChild(t);}
+ for(let t=start;t<=end;t+=7*86400000){const tx=el('text',{x:X(t),y:H-8,'text-anchor':'middle',fill:'var(--muted)','font-size':11});tx.textContent=dfmt(new Date(t));svg.appendChild(tx);}
+ svg.appendChild(el('line',{x1:ml,x2:W-mr,y1:Y(2.2),y2:Y(2.2),stroke:'var(--muted)','stroke-dasharray':'4 4'}));
+ const tl=el('text',{x:W-mr+4,y:Y(2.2),'dominant-baseline':'middle',fill:'var(--muted)','font-size':11});tl.textContent='target +2.2%';svg.appendChild(tl);
+ const series=[['p','Paper','var(--acc)',2.5],['a','Nifty 50','var(--acc2)',1.5],['b','Nifty 500','var(--acc3)',1.5]];
+ series.forEach(([k,name,c,w],i)=>{
+  const d=data.map((pt,j)=>(j?'L':'M')+X(pt.d)+' '+Y(pt[k])).join(' ');
+  svg.appendChild(el('path',{d,fill:'none',stroke:c,'stroke-width':w,'stroke-linecap':'round','stroke-linejoin':'round'}));
+  data.forEach(pt=>svg.appendChild(el('circle',{cx:X(pt.d),cy:Y(pt[k]),r:i?2.5:3.5,fill:c})));
+ });
+ // end labels, pushed apart so they never overlap
+ const last=data[data.length-1];
+ const labs=series.map(([k,name,c])=>({y:Y(last[k]),name,c,v:last[k]})).sort((a,b)=>a.y-b.y);
+ for(let i=1;i<labs.length;i++)if(labs[i].y-labs[i-1].y<13)labs[i].y=labs[i-1].y+13;
+ labs.forEach(l=>{const lab=el('text',{x:X(last.d)+7,y:l.y,'dominant-baseline':'middle',fill:l.c,'font-size':11});lab.textContent=`${l.name} ${pct(l.v)}`;svg.appendChild(lab);});
+ const hit=el('rect',{x:ml,y:mt,width:W-ml-mr,height:H-mt-mb,fill:'transparent'});svg.appendChild(hit);
+ hit.addEventListener('mousemove',ev=>{const rect=svg.getBoundingClientRect();const sx=(ev.clientX-rect.left)*W/rect.width;let best=data[0];for(const pt of data)if(Math.abs(X(pt.d)-sx)<Math.abs(X(best.d)-sx))best=pt;if(!best)return;
+  tip.style.display='block';tip.textContent='';const h=document.createElement('div');h.style.color='var(--muted)';h.textContent=dfmt(new Date(best.d));tip.appendChild(h);
+  series.forEach(([k,name,c])=>{const l=document.createElement('div');const s=document.createElement('span');s.style.cssText=`display:inline-block;width:.6em;height:.6em;border-radius:50%;background:${c};margin-right:.4em`;l.appendChild(s);l.appendChild(document.createTextNode(`${name} ${pct(best[k])}`));tip.appendChild(l);});
+  const px=(ev.clientX-rect.left),py=(ev.clientY-rect.top);tip.style.left=Math.min(px+10,rect.width-150)+'px';tip.style.top=(py-10)+'px';});
+ hit.addEventListener('mouseleave',()=>tip.style.display='none');
+ box.appendChild(svg);
+ // tables
+ const row=(cells)=>{const tr=document.createElement('tr');cells.forEach(([t,cls])=>{const td=document.createElement('td');td.textContent=t;if(cls)td.className=cls;tr.appendChild(td);});return tr;};
+ const pb=document.getElementById('pos');pos.forEach(p=>pb.appendChild(row([[p.symbol],[p.qty],[n2(p.entry)],[n2(p.close)],[inr(p.value)],[pct(p.pl_pct),p.pl_pct>0?'good':p.pl_pct<0?'bad':''],[Math.round(p.dma200)],[p.exit_flag==='hold'?'hold':'EXIT next open: '+p.exit_flag,p.exit_flag==='hold'?'':'bad']])));
+ const tb=document.getElementById('tr');trades.slice().reverse().forEach(t=>tb.appendChild(row([[t.date],[t.symbol.replace('.NS','')],[t.side],[t.qty],[n2(t.price)],[n2(t.cost)],[inr(+t.value)],[t.reason]])));
+})();
+</script>
+</body>
+</html>
