@@ -2,6 +2,8 @@
 
 Public, append-only record of a one-month paper-trading exercise. Nothing here is a real order.
 
+**Live dashboard:** https://akash-modi104.github.io/paper-ledger/ (rebuilt from this repository on every push; the page itself reads `marks.csv`, `trades.csv` and `positions.json`).
+
 **What proves "no cheating"**
 1. `rules.md` was fixed before the first trade. Any later edit shows in the commit history.
 2. `trades.csv` and `marks.csv` are pushed after every NSE close. GitHub records when each push arrived; a trade can only be added after the day it happened.
