@@ -14,9 +14,15 @@ jobs:
     environment: { name: github-pages, url: "${{ steps.deploy.outputs.page_url }}" }
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - id: cfg
+        continue-on-error: true   # until Pages is switched on in Settings, this step fails and the deploy is skipped
+        uses: actions/configure-pages@v5
         with: { enablement: true }
-      - uses: actions/upload-pages-artifact@v3
+      - if: steps.cfg.outcome == 'success'
+        uses: actions/upload-pages-artifact@v3
         with: { path: . }
       - id: deploy
+        if: steps.cfg.outcome == 'success'
         uses: actions/deploy-pages@v4
+      - if: steps.cfg.outcome != 'success'
+        run: echo "GitHub Pages is not enabled yet (Settings -> Pages -> Source: GitHub Actions). Skipped deploy."
