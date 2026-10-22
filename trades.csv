@@ -8,3 +8,6 @@ date,time_ist,symbol,side,qty,price,cost,value,reason
 2026-10-19,09:15 open,BAJAJ-AUTO.NS,BUY,11,10405.00,228.91,114683.91,entry: top-8 12-1m momentum above 200dma
 2026-10-19,09:15 open,BOSCHLTD.NS,BUY,2,45400.00,181.60,90981.60,entry: top-8 12-1m momentum above 200dma
 2026-10-21,09:15 open,TITAN.NS,SELL,28,4431.00,248.14,123819.86,trend: close 4424.20 below 200dma 4433.80
+2026-10-22,09:15 open,ABB.NS,SELL,18,6547.00,235.69,117610.31,trend: close 6559.50 below 200dma 6650.21
+2026-10-22,09:15 open,ADANIPOWER.NS,SELL,639,188.05,240.33,119923.62,trend: close 187.09 below 200dma 190.19
+2026-10-22,09:15 open,BAJAJ-AUTO.NS,SELL,11,10020.00,220.44,109999.56,trend: close 10072.00 below 200dma 10264.79
