@@ -1,0 +1,16 @@
+{
+ "date": "2026-10-23",
+ "checked_at": "2026-10-23T11:12:50.567628Z",
+ "cash": 525554.59,
+ "positions_value": 444526.39,
+ "total": 970080.98,
+ "ledger_total": 970080.99,
+ "difference": -0.01,
+ "closes": {
+  "MOTHERSON.NS": 151.6699981689453,
+  "DIVISLAB.NS": 8950.0,
+  "TORNTPHARM.NS": 4524.39990234375,
+  "BOSCHLTD.NS": 44085.0
+ },
+ "ok": true
+}
