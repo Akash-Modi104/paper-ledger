@@ -3,3 +3,4 @@
 2026-10-20 16:11 IST | mark 2026-10-20 | no bar (NSE holiday, Dussehra); nothing recorded; Titan exit still pending for next open
 2026-10-21 16:11 IST | mark 2026-10-21 | total 980056 (-1.99%) | SOLD TITAN.NS 28 @ 4431.00 (trend: close 4424.20 below 200dma 4433.80); EXIT TOMORROW ABB.NS: trend: close 6559.50 below 200dma 6650.21; EXIT TOMORROW ADANIPOWER.NS: trend: close 187.09 below 200dma 190.19; EXIT TOMORROW BAJAJ-AUTO.NS: trend: close 10072.00 below 200dma 10264.79
 2026-10-22 16:10 IST | mark 2026-10-22 | total 977569 (-2.24%) | SOLD ABB.NS 18 @ 6547.00 (trend: close 6559.50 below 200dma 6650.21); SOLD ADANIPOWER.NS 639 @ 188.05 (trend: close 187.09 below 200dma 190.19); SOLD BAJAJ-AUTO.NS 11 @ 10020.00 (trend: close 10072.00 below 200dma 10264.79)
+2026-10-23 16:10 IST | mark 2026-10-23 | total 970081 (-2.99%) | no trades
