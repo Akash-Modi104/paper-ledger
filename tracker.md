@@ -1,22 +1,22 @@
 # Paper portfolio tracker (PAPER, not real money)
 
-As of 2026-11-03 NSE close. Start ₹10,00,000 on 19 Oct 2026 open; end 19 Nov 2026 close. Rules in rules.md.
+As of 2026-11-04 NSE close. Start ₹10,00,000 on 19 Oct 2026 open; end 19 Nov 2026 close. Rules in rules.md.
 
 | | Value | Return |
 |---|---|---|
-| Paper portfolio (cash + positions) | ₹1,005,547 | +0.55% |
-| If sold now (after 0.2% exit cost) | ₹1,004,587 | +0.46% |
-| Nifty 50 | | +2.85% |
-| Nifty 500 | | +1.12% |
+| Paper portfolio (cash + positions) | ₹1,009,755 | +0.98% |
+| If sold now (after 0.2% exit cost) | ₹1,008,787 | +0.88% |
+| Nifty 50 | | +3.50% |
+| Nifty 500 | | +2.24% |
 
 Target for the month: +2.2% (30%/yr). Cash: ₹525,555.
 
 | Stock | Qty | Entry | Close | Value | P/L | 200-day avg | Exit? |
 |---|---|---|---|---|---|---|---|
-| MOTHERSON | 777 | 160.39 | 160.00 | ₹124,320 | -0.24% | 140 |  |
-| DIVISLAB | 13 | 9191.50 | 10064.00 | ₹130,832 | +9.49% | 7347 |  |
-| TORNTPHARM | 27 | 4551.20 | 4650.00 | ₹125,550 | +2.17% | 4517 |  |
-| BOSCHLTD | 2 | 45400.00 | 49645.00 | ₹99,290 | +9.35% | 39928 |  |
+| MOTHERSON | 777 | 160.39 | 159.49 | ₹123,924 | -0.56% | 140 |  |
+| DIVISLAB | 13 | 9191.50 | 10037.50 | ₹130,488 | +9.20% | 7365 |  |
+| TORNTPHARM | 27 | 4551.20 | 4738.50 | ₹127,940 | +4.12% | 4521 |  |
+| BOSCHLTD | 2 | 45400.00 | 50925.00 | ₹101,850 | +12.17% | 39994 |  |
 
 ## Today
 - no trades
@@ -24,7 +24,6 @@ Target for the month: +2.2% (30%/yr). Cash: ₹525,555.
 ## Daily marks (last 10)
 | Date | Total | Return | Nifty 50 | Nifty 500 |
 |---|---|---|---|---|
-| 2026-10-21 | ₹980,056 | -1.99% | -1.47% | -1.94% |
 | 2026-10-22 | ₹977,569 | -2.24% | -2.00% | -2.58% |
 | 2026-10-23 | ₹970,081 | -2.99% | -2.38% | -3.79% |
 | 2026-10-26 | ₹982,183 | -1.78% | -1.72% | -2.97% |
@@ -34,3 +33,4 @@ Target for the month: +2.2% (30%/yr). Cash: ₹525,555.
 | 2026-10-30 | ₹993,257 | -0.67% | -0.42% | -1.68% |
 | 2026-11-02 | ₹999,437 | -0.06% | 1.25% | -0.13% |
 | 2026-11-03 | ₹1,005,547 | 0.55% | 2.85% | 1.12% |
+| 2026-11-04 | ₹1,009,755 | 0.98% | 3.50% | 2.24% |
