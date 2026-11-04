@@ -10,3 +10,5 @@
 2026-10-28 16:13 IST | mark 2026-10-28 | total 992681 (-0.73%) | no trades
 2026-10-29 16:11 IST | mark 2026-10-29 | total 994297 (-0.57%) | no trades
 2026-10-30 16:11 IST | mark 2026-10-30 | total 993257 (-0.67%) | no trades
+2026-11-03 13:35 IST | mark 2026-11-02 | total 999437 (-0.06%) | no trades
+2026-11-03 16:11 IST | mark 2026-11-03 | total 1005547 (+0.55%) | no trades
