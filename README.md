@@ -16,3 +16,7 @@ Public, append-only record of a one-month paper-trading exercise. Nothing here i
 - `marks.csv` one row per trading day: cash, positions value, total, return, Nifty 50, Nifty 500
 - `tracker.md` current one-page standing; `log.md` run log; `universe.txt` the 100-name universe
 - `verify/` independent recomputation by GitHub Actions
+
+## Stopped
+
+The paper-trading experiment was stopped by its owner on 5 Nov 2026. The last mark is 4 Nov 2026 (close). No further trades, marks or scheduled checks will be recorded in this repo.

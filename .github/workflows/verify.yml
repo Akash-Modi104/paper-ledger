@@ -1,7 +1,5 @@
 name: verify
 on:
-  schedule:
-    - cron: '20 11 * * 1-5'   # 16:50 IST, after the daily mark is pushed
   workflow_dispatch:
   push:
     paths: ['marks.csv', 'trades.csv']
